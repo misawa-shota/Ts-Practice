@@ -5,9 +5,13 @@ const rl = readline.createInterface({
     output
 });
 (async () => {
-    const name = await rl.question('名前を入力してください:');
-    const displayName = name ?? "名無し";
-    console.log(`こんにちは、${displayName}さん！`);
+    const input = await rl.question('名前を入力してください:');
+    const name = input ? input : "名無し";
+    const user = {
+        name,
+        age: 20,
+    };
+    console.log(user);
     rl.close();
 })();
 //# sourceMappingURL=index.js.map
