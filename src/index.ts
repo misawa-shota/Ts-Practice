@@ -17,15 +17,16 @@
 //   rl.close();
 // })();
 
-type User = {
-  name: string;
-  age: number;
+type Family<Parent, Child> = {
+  mother: Parent;
+  father: Parent;
+  children: Child;
 };
 
-const obj = {
-  name: "名無し",
-  age: 20,
-  telnumber: "090-1234-5678",
+const obj: Family<number, string> = {
+  mother: 1,
+  father: 2,
+  children: "子供",
 };
+console.log(obj);
 
-const u:User = obj;
