@@ -21,7 +21,7 @@ type HasName = {
   name: string;
 };
 
-type Family<Parent extends HasName, Child extends Parent> = {
+type Family<Parent extends HasName, Child extends HasName = Animal> = {
   mother: Parent;
   father: Parent;
   children: Child;
@@ -37,4 +37,4 @@ type Human = {
 };
 
 type S = Family<Animal, Human>;
-type T = Family<Human, Animal>;
+type T = Family<Human>;
