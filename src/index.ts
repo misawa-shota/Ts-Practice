@@ -17,10 +17,15 @@
 //   rl.close();
 // })();
 
-type MyObj = {
-  readonly foo: number;
+const obj = {
+  foo: 123,
+  bar: "hi",
 };
 
-const obj: MyObj = { foo: 123 };
-// obj.foo = 456; // エラー: 読み取り専用プロパティに代入することはできません。
+type T =typeof obj;
+const obj2 :T = {
+  foo: 456,
+  bar: "hello",
+};
+console.log(obj2);
 
