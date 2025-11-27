@@ -17,16 +17,24 @@
 //   rl.close();
 // })();
 
-type Family<Parent, Child> = {
+type HasName = {
+  name: string;
+};
+
+type Family<Parent extends HasName, Child extends Parent> = {
   mother: Parent;
   father: Parent;
   children: Child;
 };
 
-const obj: Family<number, string> = {
-  mother: 1,
-  father: 2,
-  children: "子供",
+type Animal = {
+  name: string;
 };
-console.log(obj);
 
+type Human = {
+  name: string;
+  age: number;
+};
+
+type S = Family<Animal, Human>;
+type T = Family<Human, Animal>;
