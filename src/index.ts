@@ -17,23 +17,15 @@
 //   rl.close();
 // })();
 
-type FooBar = {
-  foo: string;
-  bar: number;
+type User = {
+  name: string;
+  age: number;
 };
 
-type FooBarBaz = {
-  foo: string;
-  bar: number;
-  baz: boolean;
+const obj = {
+  name: "名無し",
+  age: 20,
+  telnumber: "090-1234-5678",
 };
 
-const obj: FooBarBaz = {
-  foo: "hello",
-  bar: 42,
-  baz: true,
-};
-
-const obj2: FooBar = obj; // OK
-
-console.log(obj2);
+const u:User = obj;
