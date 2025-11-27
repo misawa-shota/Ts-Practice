@@ -17,15 +17,23 @@
 //   rl.close();
 // })();
 
-const obj = {
-  foo: 123,
-  bar: "hi",
+type FooBar = {
+  foo: string;
+  bar: number;
 };
 
-type T =typeof obj;
-const obj2 :T = {
-  foo: 456,
-  bar: "hello",
+type FooBarBaz = {
+  foo: string;
+  bar: number;
+  baz: boolean;
 };
+
+const obj: FooBarBaz = {
+  foo: "hello",
+  bar: 42,
+  baz: true,
+};
+
+const obj2: FooBar = obj; // OK
+
 console.log(obj2);
-
