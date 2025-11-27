@@ -18,21 +18,9 @@
 // })();
 
 type MyObj = {
-  foo: boolean,
-  bar: boolean,
-  baz?:number,  
+  readonly foo: number;
 };
 
-const obj1: MyObj = {
-  foo: true,
-  bar: false,
-};
+const obj: MyObj = { foo: 123 };
+// obj.foo = 456; // エラー: 読み取り専用プロパティに代入することはできません。
 
-const obj2: MyObj = {
-  foo: false,
-  bar: true,
-  baz: 42,
-};
-
-console.log(obj1.baz);
-console.log(obj2.baz);
