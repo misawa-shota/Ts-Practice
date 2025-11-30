@@ -38,3 +38,10 @@ console.log(arr3);
 // 読み取り専用配列型
 const arr4: readonly number[] = [1, 2, 3];
 arr4[0] = 10; // エラーになる
+
+// 配列型の型推論
+const arr5 = [1, 2, 3];
+arr5.push(4); // 問題なく動作する
+console.log(arr5);
+
+arr5.push("string"); // エラーになる
