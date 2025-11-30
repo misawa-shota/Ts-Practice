@@ -18,6 +18,7 @@
 // })();
 
 const arr: number[] = [1, 2, 3];
+const arr1: Array<number> = [4, 5, 6];
 
 // エラーになる
 const arr2: number[] = [1, "string", 3];
@@ -33,3 +34,7 @@ const arr3: Array<{
 console.log(arr);
 console.log(arr2);
 console.log(arr3);
+
+// 読み取り専用配列型
+const arr4: readonly number[] = [1, 2, 3];
+arr4[0] = 10; // エラーになる
