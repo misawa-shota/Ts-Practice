@@ -17,24 +17,19 @@
 //   rl.close();
 // })();
 
-type HasName = {
+const arr: number[] = [1, 2, 3];
+
+// エラーになる
+const arr2: number[] = [1, "string", 3];
+
+// 複雑な配列の型注釈
+const arr3: Array<{
   name: string;
-};
+}> = [
+  { name: "Alice" },
+  { name: "Bob" },
+];
 
-type Family<Parent extends HasName, Child extends HasName = Animal> = {
-  mother: Parent;
-  father: Parent;
-  children: Child;
-};
-
-type Animal = {
-  name: string;
-};
-
-type Human = {
-  name: string;
-  age: number;
-};
-
-type S = Family<Animal, Human>;
-type T = Family<Human>;
+console.log(arr);
+console.log(arr2);
+console.log(arr3);
