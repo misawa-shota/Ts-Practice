@@ -17,31 +17,23 @@
 //   rl.close();
 // })();
 
-const arr: number[] = [1, 2, 3];
-const arr1: Array<number> = [4, 5, 6];
+// for-of文で配列をループ
+const arr = [10, 20, 30];
+for (const num of arr) {
+  console.log(num);
+}
 
-// エラーになる
-const arr2: number[] = [1, "string", 3];
+// タプル型による型指定
+const tuple: [string, number, boolean] = ['TypeScript', 2024, true];
+console.log(tuple);
 
-// 複雑な配列の型注釈
-const arr3: Array<{
-  name: string;
-}> = [
-  { name: "Alice" },
-  { name: "Bob" },
-];
+const str = tuple[0];
+const num = tuple[1];
+const bool = tuple[2];
 
-console.log(arr);
-console.log(arr2);
-console.log(arr3);
+console.log(str);
+console.log(num);
+console.log(bool);
 
-// 読み取り専用配列型
-const arr4: readonly number[] = [1, 2, 3];
-arr4[0] = 10; // エラーになる
-
-// 配列型の型推論
-const arr5 = [1, 2, 3];
-arr5.push(4); // 問題なく動作する
-console.log(arr5);
-
-arr5.push("string"); // エラーになる
+const nothing = tuple[3]; // undefined
+console.log(nothing);

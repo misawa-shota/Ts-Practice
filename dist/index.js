@@ -14,25 +14,21 @@
 //   console.log(user);
 //   rl.close();
 // })();
-const arr = [1, 2, 3];
-const arr1 = [4, 5, 6];
-// エラーになる
-const arr2 = [1, "string", 3];
-// 複雑な配列の型注釈
-const arr3 = [
-    { name: "Alice" },
-    { name: "Bob" },
-];
-console.log(arr);
-console.log(arr2);
-console.log(arr3);
-// 読み取り専用配列型
-const arr4 = [1, 2, 3];
-arr4[0] = 10; // エラーになる
-// 配列型の型推論
-const arr5 = [1, 2, 3];
-arr5.push(4); // 問題なく動作する
-console.log(arr5);
-arr5.push("string"); // エラーになる
+// for-of文で配列をループ
+const arr = [10, 20, 30];
+for (const num of arr) {
+    console.log(num);
+}
+// タプル型による型指定
+const tuple = ['TypeScript', 2024, true];
+console.log(tuple);
+const str = tuple[0];
+const num = tuple[1];
+const bool = tuple[2];
+console.log(str);
+console.log(num);
+console.log(bool);
+const nothing = tuple[3]; // undefined
+console.log(nothing);
 export {};
 //# sourceMappingURL=index.js.map
