@@ -17,23 +17,39 @@
 //   rl.close();
 // })();
 
-// for-of文で配列をループ
-const arr = [10, 20, 30];
-for (const num of arr) {
-  console.log(num);
+type User = {
+  name: string;
+  age: number;
+  premiumUser: boolean;
+};
+
+const data: string = `
+uhyo,26,1
+John Smith,17,0
+Mary Sue,14,1
+`;
+
+// console.log(data);
+const users: User[] = [];
+const lines: string[] = data.trim().split('\n');
+// console.log(lines);
+
+for (const line of lines) {
+  const [name = '名無し', ageStr = '0', premiumUserStr = '0'] = line.split(',');
+  const user: User = {
+    name: name,
+    age: parseInt(ageStr, 10),
+    premiumUser: premiumUserStr === '1',
+  };
+  users.push(user);
 }
 
-// タプル型による型指定
-const tuple: [string, number, boolean] = ['TypeScript', 2024, true];
-console.log(tuple);
+// console.log(users);
 
-const str = tuple[0];
-const num = tuple[1];
-const bool = tuple[2];
-
-console.log(str);
-console.log(num);
-console.log(bool);
-
-const nothing = tuple[3]; // undefined
-console.log(nothing);
+for (const user of users) {
+  if (user.premiumUser) {
+    console.log(`${user.name} (${user.age})さんはプレミアムユーザーです。`);
+  } else {
+    console.log(`${user.name} (${user.age})さんはプレミアムユーザーではありません。`);
+  }
+}
