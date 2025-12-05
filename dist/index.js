@@ -28,9 +28,16 @@
 // };
 // console.log(calcBmi(uhyo));
 // アロー関数式
-const calcBmi = ({ height, weight }) => {
-    return weight / height ** 2;
-};
+// const calcBmi = ({height, weight}: Human): number => {
+//   return weight / height ** 2;
+// };
+// const uhyo: Human = {
+//   height: 1.75,
+//   weight: 60, 
+// };
+// console.log(calcBmi(uhyo));
+// アロー関数式 省略形
+const calcBmi = ({ height, weight }) => weight / height ** 2;
 const uhyo = {
     height: 1.75,
     weight: 60,
