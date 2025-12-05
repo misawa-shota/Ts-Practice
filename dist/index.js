@@ -1,22 +1,29 @@
 // import readline from 'node:readline/promises';
 // import { stdin as input, stdout as output } from 'node:process';
-// 可変超引数の関数
-// const sum = (...args: number[]): number => {
-//   let result = 0;
-//   for (const num of args) {
-//     result += num;
-//   }
-//   return result;
-// }
-// console.log(sum(1, 10, 100)); // 111
-// console.log(sum()); // 0
-const sum = (base, ...args) => {
-    let result = base * 1000;
-    for (const num of args) {
-        result += num;
+// const rl = readline.createInterface({
+//   input,
+//   output
+// });
+// (async () => {
+//   const input = await rl.question('名前を入力してください:');
+//   const name = input ? input : "名無し";
+//   const user = {
+//     name,
+//     age: 20,
+//   };
+//   console.log(user);
+//   rl.close();
+// })();
+const toLowerOrUpper = (str, upper) => {
+    if (upper) {
+        return str.toUpperCase();
     }
-    return result;
+    else {
+        return str.toLowerCase();
+    }
 };
-console.log(sum(1, 10, 100)); // 1110
+console.log(toLowerOrUpper("Hello World"));
+console.log(toLowerOrUpper("Hello World", true));
+console.log(toLowerOrUpper("Hello World", false));
 export {};
 //# sourceMappingURL=index.js.map

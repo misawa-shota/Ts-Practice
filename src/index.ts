@@ -17,29 +17,14 @@
 //   rl.close();
 // })();
 
-type Human = {
-  height: number;
-  weight: number;
-};
-
-// 可変超引数の関数
-// const sum = (...args: number[]): number => {
-//   let result = 0;
-//   for (const num of args) {
-//     result += num;
-//   }
-//   return result;
-// }
-
-// console.log(sum(1, 10, 100)); // 111
-// console.log(sum()); // 0
-
-const sum = (base: number, ...args: number[]): number => {
-  let result = base * 1000;
-  for (const num of args) {
-    result += num;
+const toLowerOrUpper = (str: string, upper?: boolean) => {
+  if (upper) {
+    return str.toUpperCase();
+  } else {
+    return str.toLowerCase();
   }
-  return result;
 }
 
-console.log(sum(1, 10, 100)); // 1110
+console.log(toLowerOrUpper("Hello World"));
+console.log(toLowerOrUpper("Hello World", true));
+console.log(toLowerOrUpper("Hello World", false));
