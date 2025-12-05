@@ -37,11 +37,20 @@
 // };
 // console.log(calcBmi(uhyo));
 // アロー関数式 省略形
-const calcBmi = ({ height, weight }) => weight / height ** 2;
-const uhyo = {
-    height: 1.75,
-    weight: 60,
+// const calcBmi = ({height, weight}: Human): number =>  weight / height ** 2;
+// const uhyo: Human = {
+//   height: 1.75,
+//   weight: 60, 
+// };
+// console.log(calcBmi(uhyo));
+// メソッド記法
+const obj = {
+    double(num) {
+        return num * 2;
+    },
+    double2: (num) => num * 2,
 };
-console.log(calcBmi(uhyo));
+console.log(obj.double(10));
+console.log(obj.double2(-50));
 export {};
 //# sourceMappingURL=index.js.map
