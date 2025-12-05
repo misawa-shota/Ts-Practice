@@ -35,13 +35,25 @@ type Human = {
 // console.log(calcBmi(uhyo));
 
 //　分割代入
-function calcBmi({height, weight}: Human): number {
+// function calcBmi({height, weight}: Human): number {
+//   return weight / height ** 2;
+// }
+
+// const uhyo: Human = {
+//   height: 1.75,
+//   weight: 60,
+// };
+
+// console.log(calcBmi(uhyo));
+
+// const関数式
+const calcBmi = function({height, weight}: Human): number {
   return weight / height ** 2;
-}
+};
 
 const uhyo: Human = {
   height: 1.75,
-  weight: 60,
+  weight: 60, 
 };
 
 console.log(calcBmi(uhyo));
