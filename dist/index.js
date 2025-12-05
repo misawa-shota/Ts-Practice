@@ -1,56 +1,22 @@
 // import readline from 'node:readline/promises';
 // import { stdin as input, stdout as output } from 'node:process';
-// function関数式
-// function calcBmi(human: Human): number {
-//   return human.weight / human.height ** 2;
+// 可変超引数の関数
+// const sum = (...args: number[]): number => {
+//   let result = 0;
+//   for (const num of args) {
+//     result += num;
+//   }
+//   return result;
 // }
-// const uhyo: Human = {
-//   height: 1.75,
-//   weight: 60,
-// };
-// console.log(calcBmi(uhyo));
-//　分割代入
-// function calcBmi({height, weight}: Human): number {
-//   return weight / height ** 2;
-// }
-// const uhyo: Human = {
-//   height: 1.75,
-//   weight: 60,
-// };
-// console.log(calcBmi(uhyo));
-// const関数式
-// const calcBmi = function({height, weight}: Human): number {
-//   return weight / height ** 2;
-// };
-// const uhyo: Human = {
-//   height: 1.75,
-//   weight: 60, 
-// };
-// console.log(calcBmi(uhyo));
-// アロー関数式
-// const calcBmi = ({height, weight}: Human): number => {
-//   return weight / height ** 2;
-// };
-// const uhyo: Human = {
-//   height: 1.75,
-//   weight: 60, 
-// };
-// console.log(calcBmi(uhyo));
-// アロー関数式 省略形
-// const calcBmi = ({height, weight}: Human): number =>  weight / height ** 2;
-// const uhyo: Human = {
-//   height: 1.75,
-//   weight: 60, 
-// };
-// console.log(calcBmi(uhyo));
-// メソッド記法
-const obj = {
-    double(num) {
-        return num * 2;
-    },
-    double2: (num) => num * 2,
+// console.log(sum(1, 10, 100)); // 111
+// console.log(sum()); // 0
+const sum = (base, ...args) => {
+    let result = base * 1000;
+    for (const num of args) {
+        result += num;
+    }
+    return result;
 };
-console.log(obj.double(10));
-console.log(obj.double2(-50));
+console.log(sum(1, 10, 100)); // 1110
 export {};
 //# sourceMappingURL=index.js.map
