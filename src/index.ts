@@ -17,39 +17,19 @@
 //   rl.close();
 // })();
 
-type User = {
-  name: string;
-  age: number;
-  premiumUser: boolean;
+type Human = {
+  height: number;
+  weight: number;
 };
 
-const data: string = `
-uhyo,26,1
-John Smith,17,0
-Mary Sue,14,1
-`;
-
-// console.log(data);
-const users: User[] = [];
-const lines: string[] = data.trim().split('\n');
-// console.log(lines);
-
-for (const line of lines) {
-  const [name = '名無し', ageStr = '0', premiumUserStr = '0'] = line.split(',');
-  const user: User = {
-    name: name,
-    age: parseInt(ageStr, 10),
-    premiumUser: premiumUserStr === '1',
-  };
-  users.push(user);
+// function関数式
+function calcBmi(human: Human): number {
+  return human.weight / human.height ** 2;
 }
 
-// console.log(users);
+const uhyo: Human = {
+  height: 1.75,
+  weight: 60,
+};
 
-for (const user of users) {
-  if (user.premiumUser) {
-    console.log(`${user.name} (${user.age})さんはプレミアムユーザーです。`);
-  } else {
-    console.log(`${user.name} (${user.age})さんはプレミアムユーザーではありません。`);
-  }
-}
+console.log(calcBmi(uhyo));
