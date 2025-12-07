@@ -1,15 +1,10 @@
 // import readline from 'node:readline/promises';
 // import { stdin as input, stdout as output } from 'node:process';
-const toLowerOrUpper = (str, upper) => {
-    if (upper) {
-        return str.toUpperCase();
-    }
-    else {
-        return str.toLowerCase();
-    }
+const double = (arg) => {
+    console.log(arg * 2);
 };
-console.log(toLowerOrUpper("Hello World"));
-console.log(toLowerOrUpper("Hello World", true));
-console.log(toLowerOrUpper("Hello World", false));
+double(10);
+double.isUsed = true;
+console.log(`isUsed: ${double.isUsed}`);
 export {};
 //# sourceMappingURL=index.js.map

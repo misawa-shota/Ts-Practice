@@ -16,19 +16,17 @@
 //   console.log(user);
 //   rl.close();
 // })();
-type toLowerOrUpper = (
-  str: string,
-  upper?: boolean | undefined,
-) => string;
 
-const toLowerOrUpper: toLowerOrUpper = (str: string, upper?: boolean) => {
-  if (upper) {
-    return str.toUpperCase();
-  } else {
-    return str.toLowerCase();
-  }
-}
+type MyFunc = {
+  isUsed?: boolean;
+  (arg: number): void;
+};
 
-console.log(toLowerOrUpper("Hello World"));
-console.log(toLowerOrUpper("Hello World", true));
-console.log(toLowerOrUpper("Hello World", false));
+const double: MyFunc = (arg: number) => {
+  console.log(arg * 2);
+};
+
+double(10);
+double.isUsed = true;
+
+console.log(`isUsed: ${double.isUsed}`);
