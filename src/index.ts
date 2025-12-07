@@ -16,8 +16,12 @@
 //   console.log(user);
 //   rl.close();
 // })();
+type toLowerOrUpper = (
+  str: string,
+  upper?: boolean | undefined,
+) => string;
 
-const toLowerOrUpper = (str: string, upper?: boolean) => {
+const toLowerOrUpper: toLowerOrUpper = (str: string, upper?: boolean) => {
   if (upper) {
     return str.toUpperCase();
   } else {
