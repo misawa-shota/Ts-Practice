@@ -17,88 +17,21 @@
 //   rl.close();
 // })();
 
-// ジェネリックス
-// function repeat<T>(element: T, length: number): T[] {
-//   const result: T[] = [];
-//   for (let i = 0; i < length; i++) {
-//     result.push(element);
-//   }
-//   return result;
-// }
+type FizzBuzzString = (num: number) => string;
 
-// console.log(repeat<string>('hello', 3));
-// console.log(repeat<number>(123, 3));
-// console.log(repeat<boolean>(true, 3));
-
-// const repeat = function<T>(element: T, length: number): T[] {
-//   const result: T[] = [];
-//   for (let i = 0; i < length; i++) {
-//     result.push(element);
-//   }
-//   return result;
-// }
-
-// console.log(repeat<string>('hello', 3));
-// console.log(repeat<number>(123, 3));
-// console.log(repeat<boolean>(true, 3));
-
-// const repeat = <T>(element: T, length: number): T[] => {
-//   const result: T[] = [];
-//   for (let i = 0; i < length; i++) {
-//     result.push(element);
-//   }
-//   return result;
-// }
-
-// console.log(repeat<string>('hello', 3));
-// console.log(repeat<number>(123, 3));
-// console.log(repeat<boolean>(true, 3));
-
-// const utils = {
-//   repeat<T>(element: T, length: number): T[] {
-//     const result: T[] = [];
-//     for (let i = 0; i < length; i++) {
-//       result.push(element);
-//     }
-//     return result;
-//   }
-// }
-// console.log(utils.repeat<string>('hello', 3));
-// console.log(utils.repeat<number>(123, 3));
-// console.log(utils.repeat<boolean>(true, 3));
-
-// const pair = <Left, Right>(left: Left, right: Right): [Left, Right] => [left, right];
-
-// console.log(pair<string, number>('hello', 123));
-// console.log(pair<boolean, string>(true, 'world'));
-
-// const repeat = <T extends {
-//   name: string;
-// }>(element: T, length: number): T[] => {
-//   const result: T[] = [];
-//   for (let i = 0; i < length; i++) {
-//     result.push(element);
-//   }
-//   return result;
-// }
-
-// type HasNameAndAge = {
-//   name: string;
-//   age: number;
-// };
-
-// const obj: HasNameAndAge = {
-//   name: 'Alice',
-//   age: 30,
-// };
-
-// console.log(repeat<HasNameAndAge>(obj, 3));
-
-function repeat<T>(element: T, length: number): T[] {
-  const result: T[] = [];
-  for (let i = 0; i < length; i++) {
-    result.push(element);
+const getFizzBuzzString: FizzBuzzString = (num: number): string => {
+  if (num % 3 === 0 && num % 5 === 0) {
+    return "FizzBuzz";
+  } else if (num % 3 === 0) {
+    return "Fizz";
+  } else if (num % 5 === 0) {
+    return "Buzz";
+  } else {
+    return num.toString();
   }
-  return result;
 }
-console.log(repeat('hello', 3));
+
+for (let i = 1; i <= 100; i++) {
+  const message = getFizzBuzzString(i);
+  console.log(message);
+}
