@@ -1,19 +1,24 @@
 class User {
   name: string;
-  #age: number;
+  age: number;
 
   constructor (name: string, age: number) {
     this.name = name;
-    this.#age = age;
+    this.age = age;
   }
 
   public isAdult(): boolean {
-    return this.#age >= 20;
+    return this.age >= 20;
   }
 }
 
 class PremiumUser extends User {
-  rank: number = 1;
+  rank: number;
+
+  constructor (name: string, rank: number) {
+    super(name, 100);
+    this.rank = rank;
+  }
 }
 
 function getMessage(u: User): string {
@@ -21,10 +26,10 @@ function getMessage(u: User): string {
 }
 
 const jhon = new User("jhon", 15);
-const uhyo = new PremiumUser("uhyo", 26);
+const uhyo = new PremiumUser("uhyo", 5);
 console.log(getMessage(uhyo)); // "こんにちは、uhyoさん！"
 console.log(getMessage(jhon)); // "こんにちは、jhonさん！"
 
-console.log(uhyo.rank); // 1
 console.log(uhyo.name); // "uhyo"
-console.log(uhyo.isAdult()); // true
+console.log(uhyo.age); // 26
+console.log(uhyo.rank); // 5
