@@ -14,9 +14,9 @@ class User<T> {
   }
 }
 
-const uhyo = new User<string>("uhyo", 26, "Some data");
+const uhyo: User<string> = new User<string>("uhyo", 26, "Some data");
 const data = uhyo.data;
 
-const Jhon = new User("Jhon", 89, { num: 123 });
+const Jhon: User<{num: number}> = new User("Jhon", 89, { num: 123 });
 const data2 = Jhon.data;
 const data3 = Jhon.data.num;
