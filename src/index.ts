@@ -1,13 +1,23 @@
 class User {
-  constructor(public name: string, private age: number) {
+  static adminUser: User
+  static {
+    this.adminUser = new User;
+    this.adminUser.#age = 9999;
+  }
+  #age: number = 0;
+  getAge() {
+    return this.#age;
   }
 
-  public isAdult(): boolean {
-    return this.age >= 20;
+  setAge(age: number) {
+    if (age < 0 || age > 150) {
+      return;
+    }
+    this.#age = age;
   }
 }
 
-const uhyo = new User("uhyo", 26);
-console.log(uhyo.name); // "uhyo"
-console.log(uhyo.isAdult()); // true
-// console.log(uhyo.age); // Error: 'age' is private and only accessible within class 'User'.
+console.log(User.adminUser.getAge()); // 9999
+const uhyo = new User();
+uhyo.setAge(27);
+console.log(uhyo.getAge()); // 27
