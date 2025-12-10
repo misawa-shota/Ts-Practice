@@ -1,4 +1,8 @@
 class User {
+    static adminName = "uhyo";
+    static getAdminUser() {
+        return new User(User.adminName, 26);
+    }
     name;
     age;
     constructor(name, age) {
@@ -8,15 +12,12 @@ class User {
     isAdult() {
         return this.age >= 20;
     }
-    setAge(newAge) {
-        this.age = newAge;
-    }
 }
+console.log(User.adminName); // "uhyo"
+const admin = User.getAdminUser();
+console.log(admin.name); // "uhyo"
+console.log(admin.age); // 26
 const uhyo = new User("uhyo", 26);
-const taro = new User("taro", 15);
-console.log(uhyo);
-console.log(taro);
-console.log(uhyo.isAdult()); // true
-console.log(taro.isAdult()); // false
+console.log(uhyo.adminName); // Error: Property 'adminName' does not exist on type 'User'.
 export {};
 //# sourceMappingURL=index.js.map
