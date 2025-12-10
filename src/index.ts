@@ -17,9 +17,18 @@
 //   rl.close();
 // })();
 
-type FizzBuzzString = (num: number) => string;
+type FizzBuzzString = (num: number) => string | number;
+type Sequence = (start: number, end: number) => number[];
 
-const getFizzBuzzString: FizzBuzzString = (num: number): string => {
+const sequence: Sequence = (start: number, end: number): number[] => {
+  const arr: number[] = [];
+  for (let n = start; n <= end; n++) {
+    arr.push(n);
+  }
+  return arr;
+}
+
+const getFizzBuzzString: FizzBuzzString = (num: number): string | number => {
   if (num % 3 === 0 && num % 5 === 0) {
     return "FizzBuzz";
   } else if (num % 3 === 0) {
@@ -27,11 +36,11 @@ const getFizzBuzzString: FizzBuzzString = (num: number): string => {
   } else if (num % 5 === 0) {
     return "Buzz";
   } else {
-    return num.toString();
+    return num;
   }
 }
 
-for (let i = 1; i <= 100; i++) {
+for (const i of sequence(1, 100)) {
   const message = getFizzBuzzString(i);
   console.log(message);
 }

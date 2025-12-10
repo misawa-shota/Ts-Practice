@@ -1,5 +1,12 @@
 // import readline from 'node:readline/promises';
 // import { stdin as input, stdout as output } from 'node:process';
+const sequence = (start, end) => {
+    const arr = [];
+    for (let n = start; n <= end; n++) {
+        arr.push(n);
+    }
+    return arr;
+};
 const getFizzBuzzString = (num) => {
     if (num % 3 === 0 && num % 5 === 0) {
         return "FizzBuzz";
@@ -11,10 +18,10 @@ const getFizzBuzzString = (num) => {
         return "Buzz";
     }
     else {
-        return num.toString();
+        return num;
     }
 };
-for (let i = 1; i <= 100; i++) {
+for (const i of sequence(1, 100)) {
     const message = getFizzBuzzString(i);
     console.log(message);
 }
