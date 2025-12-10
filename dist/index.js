@@ -1,22 +1,26 @@
 class User {
     name;
-    age;
+    #age;
     constructor(name, age) {
         this.name = name;
-        this.age = age;
+        this.#age = age;
+    }
+    isAdult() {
+        return this.#age >= 20;
     }
 }
-function getPrice(customer) {
-    if (customer instanceof User && customer.name === "uhyo") {
-        return 0;
-    }
-    return customer.age < 18 ? 1000 : 1800;
+class PremiumUser extends User {
+    rank = 1;
 }
-const customer1 = { age: 17 };
-const customer2 = { age: 20 };
-const uhyo = new User("uhyo", 25);
-console.log(getPrice(customer1)); // 1000
-console.log(getPrice(customer2)); // 1800
-console.log(getPrice(uhyo)); // 0
+function getMessage(u) {
+    return `こんにちは、${u.name}さん！`;
+}
+const jhon = new User("jhon", 15);
+const uhyo = new PremiumUser("uhyo", 26);
+console.log(getMessage(uhyo)); // "こんにちは、uhyoさん！"
+console.log(getMessage(jhon)); // "こんにちは、jhonさん！"
+console.log(uhyo.rank); // 1
+console.log(uhyo.name); // "uhyo"
+console.log(uhyo.isAdult()); // true
 export {};
 //# sourceMappingURL=index.js.map

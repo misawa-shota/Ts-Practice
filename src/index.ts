@@ -1,28 +1,30 @@
-type HasAge = {
-  age: number;
-};
-
 class User {
   name: string;
-  age: number;
+  #age: number;
 
-  constructor(name: string, age: number) {
+  constructor (name: string, age: number) {
     this.name = name;
-    this.age = age;
+    this.#age = age;
+  }
+
+  public isAdult(): boolean {
+    return this.#age >= 20;
   }
 }
 
-function getPrice(customer: HasAge) {
-  if (customer instanceof User && customer.name === "uhyo") {
-    return 0;
-  }
-  return customer.age < 18 ? 1000 : 1800;
+class PremiumUser extends User {
+  rank: number = 1;
 }
 
-const customer1: HasAge = { age: 17 };
-const customer2: HasAge = { age: 20 };
-const uhyo: User = new User("uhyo", 25);
+function getMessage(u: User): string {
+  return `こんにちは、${u.name}さん！`;
+}
 
-console.log(getPrice(customer1)); // 1000
-console.log(getPrice(customer2)); // 1800
-console.log(getPrice(uhyo));      // 0
+const jhon = new User("jhon", 15);
+const uhyo = new PremiumUser("uhyo", 26);
+console.log(getMessage(uhyo)); // "こんにちは、uhyoさん！"
+console.log(getMessage(jhon)); // "こんにちは、jhonさん！"
+
+console.log(uhyo.rank); // 1
+console.log(uhyo.name); // "uhyo"
+console.log(uhyo.isAdult()); // true
