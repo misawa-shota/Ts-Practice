@@ -1,20 +1,22 @@
 class User {
     name;
-    #age;
-    data;
-    constructor(name, age, data) {
+    age;
+    constructor(name, age) {
         this.name = name;
-        this.#age = age;
-        this.data = data;
-    }
-    isAdult() {
-        return this.#age >= 20;
+        this.age = age;
     }
 }
-const uhyo = new User("uhyo", 26, "Some data");
-const data = uhyo.data;
-const Jhon = new User("Jhon", 89, { num: 123 });
-const data2 = Jhon.data;
-const data3 = Jhon.data.num;
+function getPrice(customer) {
+    if (customer instanceof User && customer.name === "uhyo") {
+        return 0;
+    }
+    return customer.age < 18 ? 1000 : 1800;
+}
+const customer1 = { age: 17 };
+const customer2 = { age: 20 };
+const uhyo = new User("uhyo", 25);
+console.log(getPrice(customer1)); // 1000
+console.log(getPrice(customer2)); // 1800
+console.log(getPrice(uhyo)); // 0
 export {};
 //# sourceMappingURL=index.js.map

@@ -1,22 +1,28 @@
-class User<T> {
+type HasAge = {
+  age: number;
+};
+
+class User {
   name: string;
-  #age: number;
-  readonly data: T;
+  age: number;
 
-  constructor(name: string, age: number, data: T) {
+  constructor(name: string, age: number) {
     this.name = name;
-    this.#age = age;
-    this.data = data;
-  }
-
-  public isAdult(): boolean {
-    return this.#age >= 20;
+    this.age = age;
   }
 }
 
-const uhyo: User<string> = new User<string>("uhyo", 26, "Some data");
-const data = uhyo.data;
+function getPrice(customer: HasAge) {
+  if (customer instanceof User && customer.name === "uhyo") {
+    return 0;
+  }
+  return customer.age < 18 ? 1000 : 1800;
+}
 
-const Jhon: User<{num: number}> = new User("Jhon", 89, { num: 123 });
-const data2 = Jhon.data;
-const data3 = Jhon.data.num;
+const customer1: HasAge = { age: 17 };
+const customer2: HasAge = { age: 20 };
+const uhyo: User = new User("uhyo", 25);
+
+console.log(getPrice(customer1)); // 1000
+console.log(getPrice(customer2)); // 1800
+console.log(getPrice(uhyo));      // 0
