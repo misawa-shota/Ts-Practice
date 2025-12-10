@@ -15,6 +15,9 @@ class PremiumUser extends User {
         super(name, 100);
         this.rank = rank;
     }
+    isAdult() {
+        return true;
+    }
 }
 function getMessage(u) {
     return `こんにちは、${u.name}さん！`;

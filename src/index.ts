@@ -19,6 +19,10 @@ class PremiumUser extends User {
     super(name, 100);
     this.rank = rank;
   }
+
+  public override isAdult(): boolean {
+    return true;
+  }
 }
 
 function getMessage(u: User): string {
