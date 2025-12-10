@@ -1,23 +1,22 @@
-class User {
-  static adminUser: User
-  static {
-    this.adminUser = new User;
-    this.adminUser.#age = 9999;
-  }
-  #age: number = 0;
-  getAge() {
-    return this.#age;
+class User<T> {
+  name: string;
+  #age: number;
+  readonly data: T;
+
+  constructor(name: string, age: number, data: T) {
+    this.name = name;
+    this.#age = age;
+    this.data = data;
   }
 
-  setAge(age: number) {
-    if (age < 0 || age > 150) {
-      return;
-    }
-    this.#age = age;
+  public isAdult(): boolean {
+    return this.#age >= 20;
   }
 }
 
-console.log(User.adminUser.getAge()); // 9999
-const uhyo = new User();
-uhyo.setAge(27);
-console.log(uhyo.getAge()); // 27
+const uhyo = new User<string>("uhyo", 26, "Some data");
+const data = uhyo.data;
+
+const Jhon = new User("Jhon", 89, { num: 123 });
+const data2 = Jhon.data;
+const data3 = Jhon.data.num;
