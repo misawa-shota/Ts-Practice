@@ -1,29 +1,36 @@
 // import readline from 'node:readline/promises';
 // import { stdin as input, stdout as output } from 'node:process';
-const sequence = (start, end) => {
+// const rl = readline.createInterface({
+//   input,
+//   output
+// });
+// (async () => {
+//   const input = await rl.question('名前を入力してください:');
+//   const name = input ? input : "名無し";
+//   const user = {
+//     name,
+//     age: 20,
+//   };
+//   console.log(user);
+//   rl.close();
+// })();
+// function map (array: number[], callback:(num: number) => number): number[] {
+//   const arr: number[] = [];
+//   for (const item of array) {
+//     arr.push(callback(item));
+//   }
+//   return arr;
+// }
+// ジェネリクスを使ったバージョン
+function map(array, callback) {
     const arr = [];
-    for (let n = start; n <= end; n++) {
-        arr.push(n);
+    for (const item of array) {
+        arr.push(callback(item));
     }
     return arr;
-};
-const getFizzBuzzString = (num) => {
-    if (num % 3 === 0 && num % 5 === 0) {
-        return "FizzBuzz";
-    }
-    else if (num % 3 === 0) {
-        return "Fizz";
-    }
-    else if (num % 5 === 0) {
-        return "Buzz";
-    }
-    else {
-        return num;
-    }
-};
-for (const i of sequence(1, 100)) {
-    const message = getFizzBuzzString(i);
-    console.log(message);
 }
+const data = [1, 1, 2, 3, 5, 8, 13];
+const result = map(data, (x) => x * 10);
+console.log(result); // [10, 10, 20, 30, 50, 80, 130]
 export {};
 //# sourceMappingURL=index.js.map

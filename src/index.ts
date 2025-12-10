@@ -17,30 +17,23 @@
 //   rl.close();
 // })();
 
-type FizzBuzzString = (num: number) => string | number;
-type Sequence = (start: number, end: number) => number[];
+// function map (array: number[], callback:(num: number) => number): number[] {
+//   const arr: number[] = [];
+//   for (const item of array) {
+//     arr.push(callback(item));
+//   }
+//   return arr;
+// }
 
-const sequence: Sequence = (start: number, end: number): number[] => {
-  const arr: number[] = [];
-  for (let n = start; n <= end; n++) {
-    arr.push(n);
+// ジェネリクスを使ったバージョン
+function map<T, U>(array: T[], callback: (item: T) => U): U[] {
+  const arr: U[] = [];
+  for (const item of array) {
+    arr.push(callback(item));
   }
   return arr;
 }
 
-const getFizzBuzzString: FizzBuzzString = (num: number): string | number => {
-  if (num % 3 === 0 && num % 5 === 0) {
-    return "FizzBuzz";
-  } else if (num % 3 === 0) {
-    return "Fizz";
-  } else if (num % 5 === 0) {
-    return "Buzz";
-  } else {
-    return num;
-  }
-}
-
-for (const i of sequence(1, 100)) {
-  const message = getFizzBuzzString(i);
-  console.log(message);
-}
+const data = [1, 1, 2, 3, 5, 8, 13];
+const result = map(data, (x) => x * 10);
+console.log(result); // [10, 10, 20, 30, 50, 80, 130]
