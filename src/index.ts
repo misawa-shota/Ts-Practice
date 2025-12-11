@@ -1,6 +1,6 @@
 class User {
   name: string;
-  age: number;
+  protected age: number;
 
   constructor (name: string, age: number) {
     this.name = name;
@@ -15,25 +15,19 @@ class User {
 class PremiumUser extends User {
   rank: number;
 
-  constructor (name: string, rank: number) {
-    super(name, 100);
+  constructor (name: string, age: number, rank: number) {
+    super(name, age);
     this.rank = rank;
   }
 
   public override isAdult(): boolean {
-    return true;
+    return this.age >= 18;
   }
 }
 
-function getMessage(u: User): string {
-  return `こんにちは、${u.name}さん！`;
-}
-
 const jhon = new User("jhon", 15);
-const uhyo = new PremiumUser("uhyo", 5);
-console.log(getMessage(uhyo)); // "こんにちは、uhyoさん！"
-console.log(getMessage(jhon)); // "こんにちは、jhonさん！"
+const uhyo = new PremiumUser("uhyo", 26, 5);
 
-console.log(uhyo.name); // "uhyo"
-console.log(uhyo.age); // 26
-console.log(uhyo.rank); // 5
+console.log(uhyo.isAdult());
+console.log(jhon.isAdult());
+console.log(uhyo.age); // Error: 'age' is protected and only accessible within class 'User' and its subclasses.

@@ -11,23 +11,18 @@ class User {
 }
 class PremiumUser extends User {
     rank;
-    constructor(name, rank) {
-        super(name, 100);
+    constructor(name, age, rank) {
+        super(name, age);
         this.rank = rank;
     }
     isAdult() {
-        return true;
+        return this.age >= 18;
     }
 }
-function getMessage(u) {
-    return `こんにちは、${u.name}さん！`;
-}
 const jhon = new User("jhon", 15);
-const uhyo = new PremiumUser("uhyo", 5);
-console.log(getMessage(uhyo)); // "こんにちは、uhyoさん！"
-console.log(getMessage(jhon)); // "こんにちは、jhonさん！"
-console.log(uhyo.name); // "uhyo"
-console.log(uhyo.age); // 26
-console.log(uhyo.rank); // 5
+const uhyo = new PremiumUser("uhyo", 26, 5);
+console.log(uhyo.isAdult());
+console.log(jhon.isAdult());
+console.log(uhyo.age); // Error: 'age' is protected and only accessible within class 'User' and its subclasses.
 export {};
 //# sourceMappingURL=index.js.map
