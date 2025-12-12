@@ -1,17 +1,8 @@
-type HasName = {
-  name: string;
-};
+console.log("エラーを発生させます");
+throwError();
+console.log("エラーを発生させました");
 
-class User implements HasName {
-  name: string;
-  #age: number;
-
-  constructor (name: string, age: number) {
-    this.name = name;
-    this.#age = age;
-  }
-
-  public isAdult(): boolean {
-    return this.#age >= 20;
-  }
+function throwError() {
+  const error = new Error("エラーが発生しました");
+  throw error;
 }

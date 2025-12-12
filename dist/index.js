@@ -1,13 +1,9 @@
-class User {
-    name;
-    #age;
-    constructor(name, age) {
-        this.name = name;
-        this.#age = age;
-    }
-    isAdult() {
-        return this.#age >= 20;
-    }
+console.log("エラーを発生させます");
+throwError();
+console.log("エラーを発生させました");
+function throwError() {
+    const error = new Error("エラーが発生しました");
+    throw error;
 }
 export {};
 //# sourceMappingURL=index.js.map
