@@ -1,7 +1,9 @@
-function createUser(name, age) {
-    return (message) => `${name} (${age}) 「${message}」`;
-}
-const getMessage = createUser("uhyo", 26);
-console.log(getMessage("こんにちは"));
+const uhyo = {
+    name: "uhyo",
+    age: 26,
+};
+const jhon = {
+    name: "Jhon Smith",
+};
 export {};
 //# sourceMappingURL=index.js.map
