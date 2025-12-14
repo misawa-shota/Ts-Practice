@@ -1,14 +1,6 @@
-try {
-  console.log("エラーを発生させます");
-  throwError();
-  console.log("エラーを発生させました");
-} catch (err) {
-  console.log("エラーをキャッチしました");
-  console.log(err);
+function createUser(name: string, age: number) {
+  return (message: string) => `${name} (${age}) 「${message}」`;
 }
-console.log("おわり");
 
-function throwError() {
-  const error = new Error("エラーが発生しました");
-  throw error;
-}
+const getMessage = createUser("uhyo", 26);
+console.log(getMessage("こんにちは"));

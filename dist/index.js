@@ -1,16 +1,7 @@
-try {
-    console.log("エラーを発生させます");
-    throwError();
-    console.log("エラーを発生させました");
+function createUser(name, age) {
+    return (message) => `${name} (${age}) 「${message}」`;
 }
-catch (err) {
-    console.log("エラーをキャッチしました");
-    console.log(err);
-}
-console.log("おわり");
-function throwError() {
-    const error = new Error("エラーが発生しました");
-    throw error;
-}
+const getMessage = createUser("uhyo", 26);
+console.log(getMessage("こんにちは"));
 export {};
 //# sourceMappingURL=index.js.map
