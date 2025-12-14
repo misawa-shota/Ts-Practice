@@ -1,11 +1,15 @@
-const tama = {
-    species: "cat",
-    age: 3,
-};
+function getName(human) {
+    return human.name;
+}
+function getSpecies(animal) {
+    return animal.species;
+}
+const mysteryFunc = Math.random() > 0.5 ? getName : getSpecies;
 const uhyo = {
-    species: "human",
     name: "uhyo",
-    age: 26,
+    species: "cat"
 };
+const value = mysteryFunc(uhyo);
+console.log(value);
 export {};
 //# sourceMappingURL=index.js.map
