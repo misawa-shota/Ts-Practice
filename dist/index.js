@@ -1,15 +1,9 @@
-function getName(human) {
-    return human.name;
+function useMaybeHuman(human) {
+    const age = human?.age;
+    console.log(age);
 }
-function getSpecies(animal) {
-    return animal.species;
+function useTime(getTimeFunc) {
+    const timeOrUndefined = getTimeFunc?.();
 }
-const mysteryFunc = Math.random() > 0.5 ? getName : getSpecies;
-const uhyo = {
-    name: "uhyo",
-    species: "cat"
-};
-const value = mysteryFunc(uhyo);
-console.log(value);
 export {};
 //# sourceMappingURL=index.js.map
