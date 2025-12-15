@@ -1,9 +1,4 @@
-function useMaybeHuman(human) {
-    const age = human?.age;
-    console.log(age);
-}
-function useTime(getTimeFunc) {
-    const timeOrUndefined = getTimeFunc?.();
-}
+const foo = "foo";
+const bar = "bar"; // Error
 export {};
 //# sourceMappingURL=index.js.map
