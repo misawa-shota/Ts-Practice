@@ -1,10 +1,7 @@
-function makeKey<T extends string>(userName: T) {
-  return `user:${userName}` as const;
+function signNumber(type: "plus" | "minus") {
+  return type === "plus" ? 1 : -1;
 }
-const uhyoKey: "user:uhyo" = makeKey("uhyo");
 
-
-function fromKey<T extends string>(key: `user:${T}`) {
-  return key.slice(5) as T;
-}
-const user = fromKey("user:uhyo");
+console.log(signNumber("plus"));
+console.log(signNumber("minus"));
+console.log(signNumber("zero")); // Error: Argument of type '"zero"' is not assignable to parameter of type '"plus" | "minus"'.
