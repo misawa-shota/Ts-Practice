@@ -1,4 +1,17 @@
-const foo = "foo";
-const bar = "bar"; // Error
+function getHelloStr() {
+    const rand = Math.random();
+    if (rand < 0.3) {
+        return "Hello, world!";
+    }
+    else if (rand < 0.6) {
+        return "Hello, my world!";
+    }
+    else if (rand < 0.9) {
+        return "Hello world";
+    }
+    else {
+        return "Hell, world!";
+    }
+}
 export {};
 //# sourceMappingURL=index.js.map
