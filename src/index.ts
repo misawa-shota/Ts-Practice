@@ -1,18 +1,18 @@
-const mmConversionTable = {
-  mm: 1,
-  cm: 1e2,
-  m: 1e3,
-  km: 1e6,
+type Animal = {
+  tag: "animal";
+  species: string;
 };
 
-function converUnits(value: number, unit: keyof typeof mmConversionTable) {
-  console.log(unit);
-  const mmValue = value * mmConversionTable[unit];
-  return {
-    mm: mmValue,
-    m: mmValue / 1e3,
-    km: mmValue / 1e6,
-  };
-}
+type Human = {
+  tag: "human";
+  name: string;
+};
 
-console.log(converUnits(100, "cm")); // { mm: 1500, m: 1.5, km: 0.0015 }
+type User = Animal | Human;
+
+function getNamesIfAllHuman(users: readonly User[]): string[] | undefined {
+  if (users.every(user => user.tag === "human")) {
+    return (users as Human[]).map(user => user.name);
+  }
+  return undefined;
+}
