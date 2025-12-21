@@ -1,16 +1,37 @@
-type SignType = "plus" | "minus";
-function signNumber(type: SignType) {
-  return type === "plus" ? 1 : -1;
-}
+type Animal = {
+  tag: "animal";
+  species: string;
+};
 
-function numberWithSign(num: number, type: SignType | "none") {
-  if (type === "none") {
-    return 0;
+type Human = {
+  tag: "human";
+  name: string;
+};
+
+type User = Animal | Human;
+
+function getUserName(user: User) {
+  if (user.tag === "human") {
+    return user.name;
   } else {
-    return num * signNumber(type);
+    return "名無し";
   }
 }
 
-console.log(numberWithSign(5, "plus"));
-console.log(numberWithSign(5, "minus"));
-console.log(numberWithSign(5, "none"));
+const tama: User = {
+  tag: "animal",
+  species: "cat",
+};
+
+const john: User = {
+  tag: "human",
+  name: "John Doe",
+};
+
+// const alien: User = {
+//   tag: "alien",
+//   planet: "Mars",
+// }; // This should cause a TypeScript error
+
+console.log(getUserName(tama)); // Output: "名無し"
+console.log(getUserName(john)); // Output: "John Doe"
