@@ -1,24 +1,12 @@
-function getUserName(user) {
-    if (user.tag === "human") {
-        return user.name;
-    }
-    else {
-        return "名無し";
-    }
+function setAge(human, age) {
+    return { ...human, age };
 }
-const tama = {
-    tag: "animal",
-    species: "cat",
+const uhyo = {
+    type: 'human',
+    name: 'uhyo',
+    age: 26,
 };
-const john = {
-    tag: "human",
-    name: "John Doe",
-};
-// const alien: User = {
-//   tag: "alien",
-//   planet: "Mars",
-// }; // This should cause a TypeScript error
-console.log(getUserName(tama)); // Output: "名無し"
-console.log(getUserName(john)); // Output: "John Doe"
+const olderUhyo = setAge(uhyo, 27);
+console.log(olderUhyo);
 export {};
 //# sourceMappingURL=index.js.map
