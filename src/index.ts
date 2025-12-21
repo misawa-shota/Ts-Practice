@@ -1,18 +1,4 @@
-type Animal = {
-  tag: "animal";
-  species: string;
-};
+const names = ["Alice", "Bob", "Charlie"];
 
-type Human = {
-  tag: "human";
-  name: string;
-};
-
-type User = Animal | Human;
-
-function getNamesIfAllHuman(users: readonly User[]): string[] | undefined {
-  if (users.every(user => user.tag === "human")) {
-    return (users as Human[]).map(user => user.name);
-  }
-  return undefined;
-}
+type Name = (typeof names)[number];
+// type Name = "Alice" | "Bob" | "Charlie"

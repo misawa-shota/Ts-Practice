@@ -1,8 +1,4 @@
-function getNamesIfAllHuman(users) {
-    if (users.every(user => user.tag === "human")) {
-        return users.map(user => user.name);
-    }
-    return undefined;
-}
+const names = ["Alice", "Bob", "Charlie"];
 export {};
+// type Name = "Alice" | "Bob" | "Charlie"
 //# sourceMappingURL=index.js.map
