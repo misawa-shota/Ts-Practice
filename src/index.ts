@@ -1,18 +1,18 @@
-type Human = {
-  type: 'human';
-  name: string;
-  age: number;
+const mmConversionTable = {
+  mm: 1,
+  cm: 1e2,
+  m: 1e3,
+  km: 1e6,
 };
 
-function setAge(human: Human, age: Human["age"]) {
-  return { ...human, age  };
+function converUnits(value: number, unit: keyof typeof mmConversionTable) {
+  console.log(unit);
+  const mmValue = value * mmConversionTable[unit];
+  return {
+    mm: mmValue,
+    m: mmValue / 1e3,
+    km: mmValue / 1e6,
+  };
 }
 
-const uhyo: Human = {
-  type: 'human',
-  name: 'uhyo',
-  age: 26,
-};
-
-const olderUhyo = setAge(uhyo, 27);
-console.log(olderUhyo);
+console.log(converUnits(100, "cm")); // { mm: 1500, m: 1.5, km: 0.0015 }
