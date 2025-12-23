@@ -1,4 +1,15 @@
-const names = ["Alice", "Bob", "Charlie"];
+type HasToString = {
+  toString: () => string;
+};
 
-type Name = (typeof names)[number];
-// type Name = "Alice" | "Bob" | "Charlie"
+function useToString1(value: HasToString & object) {
+  console.log(`value is ${value.toString()}`);
+}
+
+useToString1({
+  toString() {
+    return "foo!";
+  }
+});
+
+useToString1(3.14);
