@@ -1,23 +1,7 @@
-function assertHuman(value) {
-    if (value == null) {
-        throw new Error("Given value is null or undefined");
-    }
-    if (value.type !== "Human" ||
-        typeof value.name !== "string" ||
-        typeof value.age !== "number") {
-        throw new Error("Given value is not a valid Human object");
-    }
-}
-function checkAndUserHuman(value) {
-    assertHuman(value);
-    const name = value.name;
-    console.log(`Human's name is ${name}`);
-}
-const uhyo = {
-    type: "Human",
-    name: "uhyo",
-    age: 30,
-};
-checkAndUserHuman(uhyo);
+const arr1 = [42, "hello", "world"];
+const arr2 = [7];
 export {};
+// error examples
+// const arr3: NumberAndStrings = []; // Error: Tuple type '[number, ...string[]]' of length '1' has no element at index '0'.
+// const arr4: NumberAndStrings = ["not a number", "hello"]; // Error: Type 'string' is not assignable to type 'number'.
 //# sourceMappingURL=index.js.map
