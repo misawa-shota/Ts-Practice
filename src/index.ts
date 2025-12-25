@@ -1,15 +1,9 @@
-type HasToString = {
-  toString: () => string;
-};
-
-function useToString1(value: HasToString & object) {
-  console.log(`value is ${value.toString()}`);
+function isStringOrNumber(value: unknown): value is string | number {
+  return typeof value === 'string' || typeof value === 'number';
 }
 
-useToString1({
-  toString() {
-    return "foo!";
-  }
-});
+const something: unknown = 123;
 
-useToString1(3.14);
+if (isStringOrNumber(something)) {
+  console.log(something.toString());
+}

@@ -1,11 +1,9 @@
-function useToString1(value) {
-    console.log(`value is ${value.toString()}`);
+function isStringOrNumber(value) {
+    return typeof value === 'string' || typeof value === 'number';
 }
-useToString1({
-    toString() {
-        return "foo!";
-    }
-});
-useToString1(3.14);
+const something = 123;
+if (isStringOrNumber(something)) {
+    console.log(something.toString());
+}
 export {};
 //# sourceMappingURL=index.js.map
