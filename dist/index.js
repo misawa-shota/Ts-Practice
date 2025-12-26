@@ -1,3 +1,4 @@
-import "./foo.js";
-import "./bar.js";
+import * as uhyo from "./uhyo.js";
+console.log(uhyo.name);
+console.log(uhyo.age);
 //# sourceMappingURL=index.js.map

@@ -1,3 +1,2 @@
-import "./foo.js";
-import "./bar.js";
+export {};
 //# sourceMappingURL=index.d.ts.map
