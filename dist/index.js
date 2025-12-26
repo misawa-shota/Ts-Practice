@@ -1,8 +1,3 @@
-const numbers = {
-    apple: ["apple", "apple"],
-    orange: ["orange", "orange", "orange"],
-    banana: ["banana"],
-};
-console.log(numbers);
-export {};
+import "./foo.js";
+import "./bar.js";
 //# sourceMappingURL=index.js.map
