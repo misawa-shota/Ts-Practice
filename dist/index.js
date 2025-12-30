@@ -4,7 +4,7 @@ const sleepReject = (duration) => {
         setTimeout(reject, duration);
     });
 };
-const p = Promise.allSettled([
+const p = Promise.any([
     readFile("foo.txt", "utf-8"),
     readFile("bar.txt", "utf-8"),
     readFile("baz.txt", "utf-8"),
