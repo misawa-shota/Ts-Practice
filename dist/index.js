@@ -1,12 +1,9 @@
 import { readFile } from "fs/promises";
-readFile("./foo.txt", "utf-8")
-    .catch((err) => {
-    console.log("Error occurred:", err);
-})
-    .then((result) => {
-    console.log(result);
-})
-    .finally(() => {
-    console.log("Finished attempting to read file.");
+const p = readFile("../foo.txt", "utf-8");
+const p2 = p.then((result) => {
+    console.log("成功", result);
+});
+const p3 = p2.catch((error) => {
+    console.log("失敗", error);
 });
 //# sourceMappingURL=index.js.map
